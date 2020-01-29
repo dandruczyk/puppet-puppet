@@ -198,6 +198,8 @@
 #                                      should be created with default user and group. This is used in
 #                                      the default Forman setup to reuse the key for TLS communication.
 #
+# $metrics_conf_template:              Alternate template for puppetserver/conf.d/metrics.conf
+#
 # $product_conf_template:              Alternate template for puppetserver/conf.d/product.conf
 #
 # $puppetserver_conf_template:         Alternate template for puppetserver/conf.d/puppetserver.conf
@@ -368,6 +370,7 @@ class puppet::server(
   Boolean $http = $::puppet::server_http,
   Integer $http_port = $::puppet::server_http_port,
   String $reports = $::puppet::server_reports,
+  String $metrics_conf_template = $::puppet::server_metrics_conf_template,
   String $product_conf_template = $::puppet::server_product_conf_template,
   String $puppetserver_conf_template = $::puppet::server_puppetserver_conf_template,
   String $webserver_conf_template = $::puppet::server_webserver_conf_template,

@@ -137,6 +137,7 @@ class puppet::server::puppetserver (
   $puppetserver_conf_template             = $::puppet::server::puppetserver_conf_template,
   $webserver_conf_template                = $::puppet::server::webserver_conf_template,
   $auth_conf_template                     = $::puppet::server::auth_conf_template,
+  $metrics_conf_template                  = $::puppet::server::metrics_conf_template,
 ) {
   include ::puppet::server
 
@@ -269,6 +270,6 @@ class puppet::server::puppetserver (
 
   file { "${server_puppetserver_dir}/conf.d/metrics.conf":
     ensure  => $metrics_conf_ensure,
-    content => template('puppet/server/puppetserver/conf.d/metrics.conf.erb'),
+    content => template($metrics_conf_template),
   }
 }
