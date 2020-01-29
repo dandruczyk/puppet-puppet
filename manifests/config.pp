@@ -1,22 +1,22 @@
 # Set up the puppet config
 # @api private
 class puppet::config(
-  $allow_any_crl_auth  = $::puppet::allow_any_crl_auth,
-  $auth_allowed        = $::puppet::auth_allowed,
-  $auth_template       = $::puppet::auth_template,
-  $ca_server           = $::puppet::ca_server,
-  $ca_port             = $::puppet::ca_port,
-  $dns_alt_names       = $::puppet::dns_alt_names,
-  $module_repository   = $::puppet::module_repository,
-  $pluginsource        = $::puppet::pluginsource,
-  $pluginfactsource    = $::puppet::pluginfactsource,
-  $puppet_dir          = $::puppet::dir,
-  $puppetmaster        = $::puppet::puppetmaster,
-  $syslogfacility      = $::puppet::syslogfacility,
-  $srv_domain          = $::puppet::srv_domain,
-  $use_srv_records     = $::puppet::use_srv_records,
-  $additional_settings = $::puppet::additional_settings,
-  $client_certname     = $::puppet::client_certname,
+  $allow_any_crl_auth   = $::puppet::allow_any_crl_auth,
+  $auth_allowed         = $::puppet::auth_allowed,
+  $legacy_auth_template = $::puppet::legacy_auth_template,
+  $ca_server            = $::puppet::ca_server,
+  $ca_port              = $::puppet::ca_port,
+  $dns_alt_names        = $::puppet::dns_alt_names,
+  $module_repository    = $::puppet::module_repository,
+  $pluginsource         = $::puppet::pluginsource,
+  $pluginfactsource     = $::puppet::pluginfactsource,
+  $puppet_dir           = $::puppet::dir,
+  $puppetmaster         = $::puppet::puppetmaster,
+  $syslogfacility       = $::puppet::syslogfacility,
+  $srv_domain           = $::puppet::srv_domain,
+  $use_srv_records      = $::puppet::use_srv_records,
+  $additional_settings  = $::puppet::additional_settings,
+  $client_certname      = $::puppet::client_certname,
 ) {
   puppet::config::main{
     'vardir': value => $::puppet::vardir;
@@ -96,6 +96,6 @@ class puppet::config(
     }
   }
   ~> file { "${puppet_dir}/auth.conf":
-    content => template($auth_template),
+    content => template($legacy_auth_template),
   }
 }

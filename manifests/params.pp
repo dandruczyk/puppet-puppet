@@ -183,7 +183,7 @@ class puppet::params {
   $package_source = undef
 
   # Need your own config templates? Specify here:
-  $auth_template   = 'puppet/auth.conf.erb'
+  $legacy_auth_template   = 'puppet/auth.conf.erb'
 
   # Allow any to the CRL. Needed in case of puppet CA proxy
   $allow_any_crl_auth = false
