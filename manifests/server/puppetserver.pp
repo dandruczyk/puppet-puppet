@@ -131,6 +131,8 @@ class puppet::server::puppetserver (
   $ca_allow_auth_extensions               = $::puppet::server::ca_allow_auth_extensions,
   $ca_enable_infra_crl                    = $::puppet::server::ca_enable_infra_crl,
   $max_open_files                         = $::puppet::server::max_open_files,
+  $ca_cfg_template                        = $::puppet::server::ca_cfg_template,
+  $ca_conf_template                       = $::puppet::server::ca_conf_template,
 ) {
   include ::puppet::server
 
@@ -219,7 +221,7 @@ class puppet::server::puppetserver (
   }
   file { "${servicesd}/ca.cfg":
     ensure  => file,
-    content => template('puppet/server/puppetserver/services.d/ca.cfg.erb'),
+    content => template($ca_cfg_template),
   }
 
   unless $::osfamily == 'FreeBSD' {
@@ -233,7 +235,7 @@ class puppet::server::puppetserver (
 
   file { "${server_puppetserver_dir}/conf.d/ca.conf":
     ensure  => file,
-    content => template('puppet/server/puppetserver/conf.d/ca.conf.erb'),
+    content => template($ca_conf_template),
   }
 
   file { "${server_puppetserver_dir}/conf.d/puppetserver.conf":

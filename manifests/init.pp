@@ -216,6 +216,10 @@
 #
 # $server_ca::                              Provide puppet CA
 #
+# $server_ca_cfg_template::                 Alternative template for puppetserver/services.d/ca.cfg
+#
+# $server_ca_conf_template::                Alternative template for puppetserver/conf.d/ca.conf
+#
 # $server_ca_crl_sync::                     Sync puppet CA crl file to compile masters, Puppet CA Must be the Puppetserver
 #                                           for the compile masters. Defaults to false.
 #
@@ -608,6 +612,8 @@ class puppet (
   String $server_ip = $puppet::params::ip,
   Integer $server_port = $puppet::params::port,
   Boolean $server_ca = $puppet::params::server_ca,
+  String  $server_ca_cfg_template = $puppet::params::server_ca_cfg_template,
+  String  $server_ca_conf_template = $puppet::params::server_ca_conf_template,
   Boolean $server_ca_crl_sync = $puppet::params::server_ca_crl_sync,
   Optional[Boolean] $server_crl_enable = $puppet::params::server_crl_enable,
   Boolean $server_ca_auth_required = $puppet::params::server_ca_auth_required,
