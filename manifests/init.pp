@@ -342,6 +342,8 @@
 #                                           access all catalog and node endpoints.
 #                                           default to ['$1']
 #
+# $server_auth_conf_template::              Alternative template for puppetserver/conf.d/auth.conf
+#
 # $server_default_manifest::                Toggle if default_manifest setting should
 #                                           be added to the [main] section
 #
@@ -635,6 +637,7 @@ class puppet (
   Optional[String] $server_config_version = $puppet::params::server_config_version,
   Integer[0] $server_connect_timeout = $puppet::params::server_connect_timeout,
   Boolean $server_git_repo = $puppet::params::server_git_repo,
+  String $server_auth_conf_template = $puppet::params::server_auth_conf_template,
   Boolean $server_default_manifest = $puppet::params::server_default_manifest,
   Stdlib::Absolutepath $server_default_manifest_path = $puppet::params::server_default_manifest_path,
   String $server_default_manifest_content = $puppet::params::server_default_manifest_content,

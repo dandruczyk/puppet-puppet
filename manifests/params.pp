@@ -209,6 +209,7 @@ class puppet::params {
 
   # Will this host be a puppetmaster?
   $server                     = false
+  $server_auth_conf_template  = 'puppet/server/puppetserver/conf.d/auth.conf.erb'
   $server_ca                  = true
   $server_ca_crl_sync         = false
   $server_reports             = 'foreman'

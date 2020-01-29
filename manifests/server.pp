@@ -27,6 +27,8 @@
 # $autosign_source::                   If set, use this as the source for the autosign file,
 #                                      instead of autosign_content.
 #
+# $auth_conf_template::                Alternative template for puppetserver/conf.d/auth.conf
+#
 # $hiera_config::                      The hiera configuration file.
 #
 # $manage_user::                       Whether to manage the puppet user resource
@@ -340,6 +342,7 @@ class puppet::server(
   Pattern[/^[0-9]{3,4}$/] $autosign_mode = $::puppet::autosign_mode,
   Optional[String] $autosign_content = $::puppet::autosign_content,
   Optional[String] $autosign_source = $::puppet::autosign_source,
+  String $auth_conf_template = $::puppet::server_auth_conf_template,
   String $hiera_config = $::puppet::hiera_config,
   Array[String] $admin_api_whitelist = $::puppet::server_admin_api_whitelist,
   Boolean $manage_user = $::puppet::server_manage_user,

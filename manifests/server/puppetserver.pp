@@ -134,6 +134,7 @@ class puppet::server::puppetserver (
   $ca_cfg_template                        = $::puppet::server::ca_cfg_template,
   $ca_conf_template                       = $::puppet::server::ca_conf_template,
   $puppetserver_conf_template             = $::puppet::server::puppetserver_conf_template,
+  $auth_conf_template                     = $::puppet::server::auth_conf_template,
 ) {
   include ::puppet::server
 
@@ -246,7 +247,7 @@ class puppet::server::puppetserver (
 
   file { "${server_puppetserver_dir}/conf.d/auth.conf":
     ensure  => file,
-    content => template('puppet/server/puppetserver/conf.d/auth.conf.erb'),
+    content => template($auth_conf_template),
   }
 
   file { "${server_puppetserver_dir}/conf.d/webserver.conf":
