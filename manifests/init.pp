@@ -364,6 +364,8 @@
 #                                           should be created with default user and group. This is used in
 #                                           the default Forman setup to reuse the key for TLS communication.
 #
+# $server_puppetserver_conf_template::      Alternative template for puppetserver/conf.d/puppetserver.conf
+#
 # $server_puppetserver_vardir::             The path of the puppetserver var dir
 #
 # $server_puppetserver_rundir::             The path of the puppetserver run dir
@@ -622,6 +624,7 @@ class puppet (
   Boolean $server_http = $puppet::params::server_http,
   Integer $server_http_port = $puppet::params::server_http_port,
   String $server_reports = $puppet::params::server_reports,
+  String  $server_puppetserver_conf_template = $puppet::params::server_puppetserver_conf_template,
   Optional[Stdlib::Absolutepath] $server_puppetserver_dir = $puppet::params::server_puppetserver_dir,
   Optional[Stdlib::Absolutepath] $server_puppetserver_vardir = $puppet::params::server_puppetserver_vardir,
   Optional[Stdlib::Absolutepath] $server_puppetserver_rundir = $puppet::params::server_puppetserver_rundir,

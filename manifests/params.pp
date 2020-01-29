@@ -222,6 +222,7 @@ class puppet::params {
   $server_http_port           = 8139
   $server_ca_cfg_template     = 'puppet/server/puppetserver/services.d/ca.cfg.erb'
   $server_ca_conf_template    = 'puppet/server/puppetserver/conf.d/ca.conf.erb'
+  $server_puppetserver_conf_template = 'puppet/server/puppetserver/conf.d/puppetserver.conf.erb'
 
   # Need a new master template for the server?
   $server_template      = 'puppet/server/puppet.conf.erb'

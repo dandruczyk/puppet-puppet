@@ -133,6 +133,7 @@ class puppet::server::puppetserver (
   $max_open_files                         = $::puppet::server::max_open_files,
   $ca_cfg_template                        = $::puppet::server::ca_cfg_template,
   $ca_conf_template                       = $::puppet::server::ca_conf_template,
+  $puppetserver_conf_template             = $::puppet::server::puppetserver_conf_template,
 ) {
   include ::puppet::server
 
@@ -240,7 +241,7 @@ class puppet::server::puppetserver (
 
   file { "${server_puppetserver_dir}/conf.d/puppetserver.conf":
     ensure  => file,
-    content => template('puppet/server/puppetserver/conf.d/puppetserver.conf.erb'),
+    content => template($puppetserver_conf_template),
   }
 
   file { "${server_puppetserver_dir}/conf.d/auth.conf":
